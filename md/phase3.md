@@ -24,8 +24,9 @@
             
 + Response 404 (application/json)
     + Attribute
+        + data: {}
         + status_code: 404 (number, required) 
-        + method: POST (string, required)
+        + method: GET (string, required)
 
 
 ##  商品在庫一覧API [/stock/list{?min_stock}]
