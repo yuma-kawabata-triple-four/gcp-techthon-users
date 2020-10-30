@@ -4,29 +4,29 @@
 
 #### 処理概要
 
-* 商品在庫テーブルから、urlの{id}と同じidを持つ商品在庫情報を返却する
-* 商品在庫テーブルに、urlの{id}と同じidを持つ商品在庫情報が存在していなかった場合、Response 404 を返却する
+* 商品在庫テーブルから、urlの{id}と同じidを持つ商品在庫情報を返却する - Response①
+* 商品在庫テーブルに、urlの{id}と同じidを持つ商品在庫情報が存在していなかった場合、api_status_code: 404 を返却する - Response②
 
 + Parameters
     + id: 1 (number, required) - 在庫商品ID
 
 + Response 200 (application/json)
-    + Attributes
-        + status_code: 200 (number, required) 
+    + Attributes - Response①
+        + status_code: 200 (number, required)
         + method: GET (string, required)
         + data (object)
-            + id: 1 (number, required) 
-            + name: pen (string) 
-            + price: 100 (number) 
-            + on_sale: true (boolean) 
-            + stock: 100 (number) 
-            + discount: 0 (number) 
+            + id: 2 (number, required) - 商品在庫id
+            + name: chocolate (string, required) - 商品在庫名称
+            + price: 200 (number, required) - 商品在庫価格
+            + on_sale: true (boolean, required) - 商品在庫販売可否
+            + stock: 100 (number, optional) - 商品在庫数
+            + discount: 0 (number, optional) - 商品在庫値引き額
             
-+ Response 404 (application/json)
-    + Attribute
-        + data: {}
++ Response 200 (application/json)
+    + Attribute - Response②
         + status_code: 404 (number, required) 
         + method: GET (string, required)
+        + data: {}
 
 
 ##  商品在庫一覧API [/stock/list{?min_stock}]
