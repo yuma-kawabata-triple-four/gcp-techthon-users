@@ -11,8 +11,8 @@
     + id: 1 (number, required) - 在庫商品ID
 
 + Response 200 (application/json)
-    + Attributes - Response①
-        + status_code: 200 (number, required)
+    + Attributes 
+        + api_status_code: 200 (number, required)
         + method: GET (string, required)
         + data (object)
             + id: 2 (number, required) - 商品在庫id
@@ -24,7 +24,7 @@
             
 + Response 200 (application/json)
     + Attribute - Response②
-        + status_code: 404 (number, required) 
+        + api_status_code: 404 (number, required) 
         + method: GET (string, required)
         + data: {}
 
@@ -42,9 +42,24 @@
     + min_stock: 10 (number, optional) - 最小商品在庫数
 
 + Response 200 (application/json)
-    + Attributes
-        + status_code: 200 (number, required) 
-        + method: POST (string, required)
+    + Attributes 
+        + api_status_code: 200 (number, required)
+        + method: GET (string, required)
+        + data (array)
+            + stock (object)
+                + id: 2 (number, required) - 商品在庫id
+                + name: chocolate (string, required) - 商品在庫名称
+                + price: 200 (number, required) - 商品在庫価格
+                + on_sale: true (boolean, required) - 商品在庫販売可否
+                + stock: 100 (number, optional) - 商品在庫数
+                + discount: 0 (number, optional) - 商品在庫値引き額
+            + stock (object)
+                + id: 3 (number, required) - 商品在庫id
+                + name: chocolate (string, required) - 商品在庫名称
+                + price: 300 (number, required) - 商品在庫価格
+                + on_sale: true (boolean, required) - 商品在庫販売可否
+                + stock: 200 (number, optional) - 商品在庫数
+                + discount: 20 (number, optional) - 商品在庫値引き額
 
 
 ##  商品在庫登録API [/stock/create]
@@ -68,5 +83,5 @@
 
 + Response 200 (application/json)
     + Attributes
-        + status_code: 200 (number, required) 
+        + api_status_code: 200 (number, required) 
         + method: POST (string, required)
